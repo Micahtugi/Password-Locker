@@ -1,6 +1,6 @@
 class Password:
     """
-    Class that generates new instances of passwords.
+    
     """
 
     password_list = [] # Empty password list
@@ -8,10 +8,17 @@ class Password:
     def save_password(self):
 
         '''
-        save_password method saves password objects into password_list
+        
         '''
 
         Password.password_list.append(self)
+    def delete_password(self):
+
+        '''
+        
+        '''
+
+        Password.password_list.remove(self)
 
     def __init__(self,first_name,last_name,password):
 

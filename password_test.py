@@ -54,9 +54,19 @@ class TestPassword(unittest.TestCase):
             test_password = Password("Test","user","python") # new password
             test_password.save_password()
             self.assertEqual(len(Password.password_list),2)
+    def test_delete_password(self):
+            '''
+            test_delete_password to test if we can remove a password from our password list
+            '''
+            self.new_password.save_password()
+            test_password = Password("Test","user","python") # new password
+            test_password.save_password()
 
-
-
+            self.new_password.delete_password()# Deleting a password object
+            self.assertEqual(len(Password.password_list),1)
+ 
+    
+    
 
 if __name__ == '__main__':
     unittest.main()
