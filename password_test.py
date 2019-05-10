@@ -31,6 +31,31 @@ class TestPassword(unittest.TestCase):
         '''
         self.new_password.save_password() # saving the new password
         self.assertEqual(len(Password.password_list),1) 
+    def test_save_multiple_password(self):
+            '''
+            test_save_multiple_password to check if we can save multiple password
+            objects to our password_list
+            '''
+            self.new_password.save_password()
+            test_password = Password("Test","user","python") # new password
+            test_password.save_password()
+            self.assertEqual(len(Password.password_list),2)
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            Password.password_list = []
+    def test_save_multiple_password(self):
+            '''
+            test_save_multiple_password to check if we can save multiple password
+            objects to our password_list
+            '''
+            self.new_password.save_password()
+            test_password = Password("Test","user","python") # new password
+            test_password.save_password()
+            self.assertEqual(len(Password.password_list),2)
+
+
 
 
 if __name__ == '__main__':
