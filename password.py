@@ -1,22 +1,22 @@
 class Password:
-    """
     
-    """
+    
+    
 
     password_list = [] # Empty password list
  # Init method up here
     def save_password(self):
 
-        '''
         
-        '''
+        
+        
 
         Password.password_list.append(self)
     def delete_password(self):
 
-        '''
         
-        '''
+        
+        
 
         Password.password_list.remove(self)
 

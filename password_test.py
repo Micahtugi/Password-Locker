@@ -64,7 +64,18 @@ class TestPassword(unittest.TestCase):
 
             self.new_password.delete_password()# Deleting a password object
             self.assertEqual(len(Password.password_list),1)
- 
+    def test_find_password_by_number(self):
+        '''
+        test to check if we can find a password by phone number and display information
+        '''
+
+        self.new_password.save_password()
+        test_password = Password("Test","user","python") # new password
+        test_password.save_password()
+
+        found_password = Password.find_by_number("python")
+
+        
     
     
 
