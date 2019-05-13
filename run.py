@@ -41,7 +41,7 @@ def main():
     print('\n')
 
     while True:
-            print("Use these short codes : cc - create a new password, dc - display password, fc -find a password, ex -exit the password-locker ")
+            print("Use these short codes : cc - create a new password,del-Delete password dc - display password, fc -find a password, ex -exit the password-locker ")
 
             short_code = input().lower()
 
@@ -82,6 +82,20 @@ def main():
                     print('\n')
                     print("You don't seem to have any passwords saved yet")
                     print('\n')
+            elif short_code == 'del':
+
+                print("Enter the password you want to search for")
+
+                search_number = input()
+                if check_existing_passwords(search_number):
+                    search_password = find_password(search_number)
+                    print(f"{search_password.first_name} {search_password.last_name}")
+                    del_password(search_password)
+                    print("Password successfully deleted")
+                else:
+                    
+                    print("That password does not exist")
+
 
             elif short_code == 'fc':
 
