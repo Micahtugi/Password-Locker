@@ -5,20 +5,12 @@ class Password:
 
     password_list = [] # Empty password list
  # Init method up here
-    def save_password(self):
-
-        
-        
-        
-
+    def save_password(self):        
         Password.password_list.append(self)
+
     def delete_password(self):
-
-        
-        
-        
-
         Password.password_list.remove(self)
+        
     @classmethod
     def find_by_number(cls,number):
         '''
@@ -33,6 +25,8 @@ class Password:
         for password in cls.password_list:
             if password.password == number:
                 return password
+   
+    
 
     def __init__(self,first_name,last_name,password):
 
@@ -41,4 +35,10 @@ class Password:
         self.first_name = first_name
         self.last_name = last_name
         self.password = password
-        
+    @classmethod
+    def password_exist(cls,number):
+        for password in cls.password_list:
+            if password.password == number:
+                    return True
+
+        return False

@@ -37,7 +37,7 @@ class TestPassword(unittest.TestCase):
             objects to our password_list
             '''
             self.new_password.save_password()
-            test_password = Password("Test","user","python") # new password
+            test_password = Password("Micah","Mutugi","python") # new password
             test_password.save_password()
             self.assertEqual(len(Password.password_list),2)
     def tearDown(self):
@@ -51,7 +51,7 @@ class TestPassword(unittest.TestCase):
             objects to our password_list
             '''
             self.new_password.save_password()
-            test_password = Password("Test","user","python") # new password
+            test_password = Password("Micah","Mutugi","python") # new password
             test_password.save_password()
             self.assertEqual(len(Password.password_list),2)
     def test_delete_password(self):
@@ -59,7 +59,7 @@ class TestPassword(unittest.TestCase):
             test_delete_password to test if we can remove a password from our password list
             '''
             self.new_password.save_password()
-            test_password = Password("Test","user","python") # new password
+            test_password = Password("Micah","Mutugi","python") # new password
             test_password.save_password()
 
             self.new_password.delete_password()# Deleting a password object
@@ -70,13 +70,30 @@ class TestPassword(unittest.TestCase):
         '''
 
         self.new_password.save_password()
-        test_password = Password("Test","user","python") # new password
+        test_password = Password("Micah","Mutugi","python") # new password
         test_password.save_password()
 
         found_password = Password.find_by_number("python")
 
-        
-    
+    def test_password_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the contact.
+        '''
+
+        self.new_password.save_password()
+        test_password = Password("Micah","Mutugi","python") # new password
+        test_password.save_password()
+
+        password_exists = Password.password_exist("python")
+
+        self.assertTrue(password_exists)
+    def test_display_all_passwords(self):
+        '''
+        method that returns a list of all passwords saved
+        '''
+
+        self.assertEqual(Password.display_passwords(),Password.password_list)
+
     
 
 if __name__ == '__main__':
