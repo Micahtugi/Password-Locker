@@ -12,21 +12,25 @@ class TestPassword(unittest.TestCase):
     '''
 
     def setUp(self):
+        
         '''
         Set up method to run before each test cases.
         '''
         self.new_password = Password(
             "Micah", "Mutugi", "python")  # create password object
 
+    
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
         '''
 
+       
         self.assertEqual(self.new_password.first_name, "Micah")
         self.assertEqual(self.new_password.last_name, "Mutugi")
         self.assertEqual(self.new_password.password, "python")
 
+   
     def test_save_password(self):
         '''
         test_save_password test case to test if the password object is saved into
